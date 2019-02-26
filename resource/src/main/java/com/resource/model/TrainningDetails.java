@@ -1,14 +1,11 @@
 package com.resource.model;
 
 import java.util.Date;
-import java.util.List;
 import com.resource.model.resource_details;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 @Entity
 public class TrainningDetails extends BaseModel {
 	
