@@ -4,55 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script type="text/javascript">
 
-$(function () {
-	   var bindDatePicker = function() {
-			$(".date").datetimepicker({
-	        format:'YYYY-MM-DD',
-				icons: {
-					time: "fa fa-clock-o",
-					date: "fa fa-calendar",
-					up: "fa fa-arrow-up",
-					down: "fa fa-arrow-down"
-				}
-			}).find('input:first').on("blur",function () {
-				// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
-				// update the format if it's yyyy-mm-dd
-				var date = parseDate($(this).val());
-
-				if (! isValidDate(date)) {
-					//create date based on momentjs (we have that)
-					date = moment().format('YYYY-MM-DD');
-				}
-
-				$(this).val(date);
-			});
-		}
-	   
-	   var isValidDate = function(value, format) {
-			format = format || false;
-			// lets parse the date to the best of our knowledge
-			if (format) {
-				value = parseDate(value);
-			}
-
-			var timestamp = Date.parse(value);
-
-			return isNaN(timestamp) == false;
-	   }
-	   
-	   var parseDate = function(value) {
-			var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-			if (m)
-				value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
-
-			return value;
-	   }
-	   
-	   bindDatePicker();
-	 });
-</script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -189,7 +141,7 @@ $(function () {
   						<label >Interview Date</label>
             <div class="form-group">
                 <div class='input-group date' id='interview_date'>
-                    <form:input type='text'  class="form-control" path="" onclick="bindDatePicker()" />
+                    <form:input type='date'  class="form-control" path="" onclick="bindDatePicker()" />
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
@@ -200,7 +152,7 @@ $(function () {
   						<label >Joining Date</label>
             <div class="form-group">
                 <div class='input-group date' id='datetimepickerJoining'>
-                    <form:input type='text'  class="form-control" path="" onclick="bindDatePicker()" />
+                    <form:input type='date'  class="form-control" path=""  />
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
